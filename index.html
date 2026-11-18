@@ -1,14 +1,298 @@
 
-<header class="hero">
-  <img
-    class="hero-logo"
-    src="images/drillions.jpg"
-    alt="DRILLIONS Chrome Logo"
-  >
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DRILLIONS — identity, culture and ambition.">
 
-  <div class="hero-bottom">
-    <span>DRILLIONS / EST. 2026</span>
-    <span>THE BRAND</span>
-    <span>SCROLL ↓</span>
+  <title>DRILLIONS — The Brand</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+
+      <div class="navlinks" id="navLinks">
+        <a href="#identity">Identity</a>
+        <a href="#collections">Collections</a>
+        <a href="#story">Story</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <!-- FLOATING TOP-RIGHT LOGO -->
+      <a href="#top" class="brand-logo" aria-label="DRILLIONS home">
+        <img
+          src="images/drillions.jpg"
+          alt="DRILLIONS Chrome Logo"
+          class="floating-logo"
+        >
+      </a>
+
+      <button
+        class="menu"
+        id="menuButton"
+        aria-label="Toggle navigation"
+        aria-controls="navLinks"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </div>
+  </nav>
+
+
+  <!-- MAIN HOMEPAGE LOGO -->
+
+  <header class="hero" id="top">
+
+    <div class="container hero-content">
+      <img
+        src="images/drillions.jpg"
+        alt="DRILLIONS Signature Chrome Logo"
+        class="hero-logo"
+      >
+    </div>
+
+    <div class="container hero-bottom">
+      <span>DRILLIONS / EST. 2026</span>
+      <span>THE BRAND</span>
+      <span>SCROLL ↓</span>
+    </div>
+
+  </header>
+
+
+  <!-- MOVING BRAND TEXT -->
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>DRILLIONS · IDENTITY · DESIRE · CULTURE · AMBITION · </span>
+      <span>DRILLIONS · IDENTITY · DESIRE · CULTURE · AMBITION · </span>
+    </div>
   </div>
-</header>
+
+
+  <main>
+
+    <!-- BRAND IDENTITY -->
+
+    <section class="intro" id="identity">
+      <div class="container intro-grid">
+
+        <div>
+          <div class="eyebrow">01 / Identity</div>
+          <h1>More than<br>a name.</h1>
+        </div>
+
+        <div class="intro-copy">
+          <p>
+            <strong>DRILLIONS is a world, not a template.</strong>
+            The brand is built around contrast:
+            polished metal against black,
+            old-world typography against modern ambition,
+            luxury against raw energy.
+          </p>
+
+          <p>
+            Everything is intentional.
+            The mark. The motion. The space. The silence.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- BRAND MANIFESTO -->
+
+    <section class="manifesto">
+      <div class="container">
+
+        <p>
+          We don't want to
+          <em>look like everyone else.</em>
+          We want to create a language people recognize
+          before they read the name.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- COLLECTIONS -->
+
+    <section class="collections" id="collections">
+      <div class="container">
+
+        <div class="section-top">
+
+          <div>
+            <div class="eyebrow">02 / Collections</div>
+            <h2 class="section-title">
+              THE WORLD<br>
+              OF DRILLIONS.
+            </h2>
+          </div>
+
+          <p class="section-note">
+            A visual system designed to extend
+            across fashion, objects, media,
+            digital, and culture.
+          </p>
+
+        </div>
+
+
+        <div class="products">
+
+          <!-- CHROME -->
+
+          <article class="product">
+            <div class="product-art">
+              <img
+                src="images/drillions.jpg"
+                alt="DRILLIONS Chrome Collection"
+              >
+            </div>
+
+            <div class="product-info">
+              <span>01 / CHROME</span>
+              <span>Signature</span>
+            </div>
+          </article>
+
+
+          <!-- BLACK -->
+
+          <article class="product">
+            <div class="product-art">
+              <img
+                src="images/drillions.jpg"
+                alt="DRILLIONS Black Edition"
+              >
+            </div>
+
+            <div class="product-info">
+              <span>02 / BLACK</span>
+              <span>Edition</span>
+            </div>
+          </article>
+
+
+          <!-- SILVER -->
+
+          <article class="product">
+            <div class="product-art">
+              <img
+                src="images/drillions.jpg"
+                alt="DRILLIONS Silver Archive"
+              >
+            </div>
+
+            <div class="product-info">
+              <span>03 / SILVER</span>
+              <span>Archive</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- BRAND STORY -->
+
+    <section class="story" id="story">
+
+      <div class="story-image">
+        <img
+          src="images/drillions.jpg"
+          alt="DRILLIONS Chrome Logo"
+        >
+      </div>
+
+      <div class="story-copy">
+
+        <div class="eyebrow">03 / The Story</div>
+
+        <h2>
+          MAKE THE<br>
+          NAME MEAN<br>
+          SOMETHING.
+        </h2>
+
+        <p>
+          DRILLIONS is designed to feel timeless
+          without becoming nostalgic.
+
+          The chrome wordmark carries the heritage.
+          The black space creates the attitude.
+
+          The system leaves room for the brand
+          to become bigger than its first expression.
+        </p>
+
+        <div class="signature">— DRILLIONS</div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+      <div class="container">
+
+        <div class="eyebrow">04 / Enter the World</div>
+
+        <h2>
+          DRILL<br>
+          DEEPER.
+        </h2>
+
+        <p>
+          For collaborations, creative work,
+          products, partnerships, or the next chapter.
+        </p>
+
+        <a
+          href="mailto:hello@drillions.com"
+          class="button"
+        >
+          Start a conversation ↗
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container footer">
+
+      <span>
+        © <span id="year">2026</span> DRILLIONS
+      </span>
+
+      <span>BUILT FOR THE LONG RUN</span>
+
+      <span>ALL RIGHTS RESERVED</span>
+
+    </div>
+  </footer>
+
+</body>
+</html>
