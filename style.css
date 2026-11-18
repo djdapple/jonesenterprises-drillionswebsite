@@ -645,3 +645,64 @@ footer {
     scroll-behavior: auto;
   }
 }
+
+
+/* TOP-RIGHT FLOATING LOGO */
+
+.brand-logo {
+  width: 104px;
+  height: 65px;
+  flex: 0 0 104px;
+  margin-left: auto;
+  border: none;
+  background: transparent;
+}
+
+.floating-logo {
+  width: 100%;
+  height: 62px;
+  object-fit: contain;
+  border: none;
+  animation: logoFloat 5s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* MAIN HOMEPAGE LOGO */
+
+.hero-logo {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  max-height: 64vh;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .brand-logo {
+    width: 90px;
+    flex-basis: 90px;
+  }
+
+  .floating-logo {
+    height: 54px;
+  }
+
+  .hero-logo {
+    max-width: 92vw;
+    max-height: 48vh;
+  }
+}
+
