@@ -1,49 +1,647 @@
-.intro-copy{align-self:end;max-width:560px;color:#aaa;font-size:17px;line-height:1.7}
-.intro-copy strong{color:#fff;font-weight:500}
 
-.manifesto{padding:0 0 160px}
-.manifesto p{font-family:Georgia,serif;font-size:clamp(36px,6vw,82px);line-height:.98;letter-spacing:-.045em;max-width:1100px}
-.manifesto em{color:#777}
+/* ====================================
+   DRILLIONS — COMPLETE BRAND CSS
+==================================== */
 
-.collections{padding:120px 0;border-top:1px solid var(--line)}
-.section-top{display:flex;justify-content:space-between;align-items:end;margin-bottom:50px}
-.section-title{font-family:Georgia,serif;font-size:clamp(45px,7vw,90px);font-weight:400;letter-spacing:-.05em}
-.section-note{max-width:260px;color:#777;font-size:11px;line-height:1.6;text-transform:uppercase;letter-spacing:.08em}
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.product{position:relative;aspect-ratio:4/5;overflow:hidden;background:#101010;border:1px solid var(--line)}
-.product::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 45%)}
-.product-art{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(circle, #292929 0, #090909 65%)}
-.product-art img{width:65%;opacity:.9;filter:grayscale(1) contrast(1.2)}
-.product:nth-child(2) .product-art{background:radial-gradient(circle at 30% 35%,#303030,#080808 65%)}
-.product:nth-child(3) .product-art{background:radial-gradient(circle at 70% 55%,#222,#070707 65%)}
-.product-info{position:absolute;left:20px;right:20px;bottom:18px;z-index:2;display:flex;justify-content:space-between;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
-.product-info span:last-child{color:#777}
+:root {
+  --black: #050505;
+  --white: #f5f5f2;
+  --muted: #777;
+  --line: rgba(255,255,255,0.14);
+  --max: 1240px;
+}
 
-.story{display:grid;grid-template-columns:1fr 1fr;min-height:760px}
-.story-image{background:#0a0a0a;display:grid;place-items:center;overflow:hidden}
-.story-image img{width:75%;max-width:500px;mix-blend-mode:screen;opacity:.82}
-.story-copy{display:flex;flex-direction:column;justify-content:center;padding:80px; border-left:1px solid var(--line)}
-.story-copy h2{font-family:Georgia,serif;font-size:clamp(48px,6vw,86px);font-weight:400;line-height:.9;letter-spacing:-.055em;margin:20px 0 30px}
-.story-copy p{color:#999;line-height:1.8;max-width:450px}
-.signature{margin-top:45px;font-family:Georgia,serif;font-size:22px;color:#aaa}
+/* RESET */
 
-.contact{padding:170px 0;text-align:center;border-top:1px solid var(--line)}
-.contact .eyebrow{margin-bottom:25px}
-.contact h2{font-family:Georgia,serif;font-size:clamp(55px,10vw,140px);font-weight:400;letter-spacing:-.07em;line-height:.82}
-.contact p{color:#777;margin:30px auto;max-width:440px;line-height:1.6}
-.button{display:inline-block;border:1px solid #555;padding:15px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;transition:.25s}
-.button:hover{background:#fff;color:#000;border-color:#fff}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-footer{border-top:1px solid var(--line);padding:30px 0 50px;color:#555;font-size:9px;letter-spacing:.16em;text-transform:uppercase}
-.footer{display:flex;justify-content:space-between}
-@media(max-width:800px){
-  .navlinks{display:none} .menu{display:block}
-  .container{width:min(calc(100% - 30px),var(--max))}
-  .hero-logo{width:90vw}
-  .intro-grid,.story{grid-template-columns:1fr;gap:50px}
-  .products{grid-template-columns:1fr}
-  .product{aspect-ratio:1/1.15}
-  .story-copy{border-left:0;border-top:1px solid var(--line);padding:70px 25px}
-  .section-top{display:block} .section-note{margin-top:20px}
-  .hero-bottom{padding:0 15px}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: min(calc(100% - 48px), var(--max));
+  margin: auto;
+}
+
+/* ====================================
+   NAVIGATION
+==================================== */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 12px 0;
+  transition: background 0.3s,
+              backdrop-filter 0.3s;
+}
+
+.nav.scrolled {
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.navlinks a {
+  opacity: 0.65;
+  transition: opacity 0.2s;
+}
+
+.navlinks a:hover {
+  opacity: 1;
+}
+
+/* ====================================
+   TOP-RIGHT DRILLIONS LOGO
+==================================== */
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  width: 125px;
+  flex-shrink: 0;
+}
+
+.floating-logo {
+  display: block;
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+
+  animation: logoFloat 5s ease-in-out infinite;
+
+  filter: drop-shadow(
+    0 0 8px rgba(255,255,255,0.18)
+  );
+
+  transition: filter 0.3s;
+}
+
+/* LOGO FLOATING ANIMATION */
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-4px) rotate(0.5deg);
+  }
+}
+
+/* LOGO HOVER GLOW */
+
+.brand-logo:hover .floating-logo {
+  filter: drop-shadow(
+    0 0 15px rgba(255,255,255,0.5)
+  );
+}
+
+/* MOBILE MENU BUTTON */
+
+.menu {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ====================================
+   MAIN HERO
+==================================== */
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 110px 0 75px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at 50% 42%,
+    rgba(255,255,255,0.07),
+    transparent 30%
+  );
+
+  pointer-events: none;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MAIN DRILLIONS PHOTO */
+
+.hero-logo {
+  width: min(78vw, 760px);
+  height: auto;
+  object-fit: contain;
+
+  filter: drop-shadow(
+    0 0 24px rgba(255,255,255,0.06)
+  );
+}
+
+.hero-bottom {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #666;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ====================================
+   MOVING TEXT
+==================================== */
+
+.marquee {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  padding: 18px 0;
+  white-space: nowrap;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee 24s linear infinite;
+}
+
+.track span {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  padding-right: 60px;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ====================================
+   IDENTITY SECTION
+==================================== */
+
+.intro {
+  padding: 150px 0;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.intro h1 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 100px);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  margin-top: 25px;
+}
+
+.intro-copy {
+  align-self: end;
+  max-width: 560px;
+  color: #aaa;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.intro-copy p + p {
+  margin-top: 22px;
+}
+
+.intro-copy strong {
+  color: white;
+  font-weight: 500;
+}
+
+/* ====================================
+   MANIFESTO
+==================================== */
+
+.manifesto {
+  padding: 0 0 160px;
+}
+
+.manifesto p {
+  font-family: Georgia, serif;
+  font-size: clamp(36px, 6vw, 82px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  max-width: 1100px;
+}
+
+.manifesto em {
+  color: #777;
+}
+
+/* ====================================
+   COLLECTIONS
+==================================== */
+
+.collections {
+  padding: 120px 0;
+  border-top: 1px solid var(--line);
+}
+
+.section-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-family: Georgia, serif;
+  font-size: clamp(45px, 7vw, 90px);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+}
+
+.section-note {
+  max-width: 260px;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.6;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.product {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #101010;
+  border: 1px solid var(--line);
+}
+
+.product::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    transparent 45%
+  );
+
+  pointer-events: none;
+}
+
+.product-art {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+
+  background: radial-gradient(
+    circle,
+    #292929 0%,
+    #090909 65%
+  );
+}
+
+.product-art img {
+  width: 75%;
+  height: 85%;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.2);
+}
+
+.product:nth-child(2) .product-art {
+  background: radial-gradient(
+    circle at 30% 35%,
+    #303030,
+    #080808 65%
+  );
+}
+
+.product:nth-child(3) .product-art {
+  background: radial-gradient(
+    circle at 70% 55%,
+    #222,
+    #070707 65%
+  );
+}
+
+.product-info {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  z-index: 2;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.product-info span:last-child {
+  color: #aaa;
+}
+
+/* ====================================
+   STORY
+==================================== */
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 760px;
+}
+
+.story-image {
+  background: #0a0a0a;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.story-image img {
+  width: 75%;
+  max-width: 500px;
+  mix-blend-mode: screen;
+  opacity: 0.82;
+}
+
+.story-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+  border-left: 1px solid var(--line);
+}
+
+.story-copy h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(48px, 6vw, 86px);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  margin: 20px 0 30px;
+}
+
+.story-copy p {
+  color: #999;
+  line-height: 1.8;
+  max-width: 450px;
+}
+
+.signature {
+  margin-top: 45px;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  color: #aaa;
+}
+
+/* ====================================
+   CONTACT
+==================================== */
+
+.contact {
+  padding: 170px 0;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+.contact .eyebrow {
+  margin-bottom: 25px;
+}
+
+.contact h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(55px, 10vw, 140px);
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  line-height: 0.82;
+}
+
+.contact p {
+  color: #777;
+  margin: 30px auto;
+  max-width: 440px;
+  line-height: 1.6;
+}
+
+.button {
+  display: inline-block;
+  border: 1px solid #555;
+  padding: 15px 28px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.25s;
+}
+
+.button:hover {
+  background: white;
+  color: black;
+  border-color: white;
+}
+
+/* ====================================
+   FOOTER
+==================================== */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 30px 0 50px;
+  color: #555;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+/* ====================================
+   MOBILE RESPONSIVE
+==================================== */
+
+@media (max-width: 800px) {
+
+  .container {
+    width: min(calc(100% - 30px), var(--max));
+  }
+
+  .nav-inner {
+    justify-content: flex-end;
+  }
+
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 15px;
+    right: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px;
+    background: #090909;
+    border: 1px solid var(--line);
+  }
+
+  .navlinks.open {
+    display: flex;
+  }
+
+  .brand-logo {
+    order: 2;
+    margin-left: auto;
+    width: 105px;
+  }
+
+  .floating-logo {
+    height: 70px;
+  }
+
+  .menu {
+    display: block;
+    order: 1;
+    margin-right: auto;
+  }
+
+  .hero-logo {
+    width: 90vw;
+  }
+
+  .hero-bottom {
+    font-size: 8px;
+  }
+
+  .intro-grid,
+  .story {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .product {
+    aspect-ratio: 1 / 1.15;
+  }
+
+  .story-copy {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 70px 25px;
+  }
+
+  .section-top {
+    display: block;
+  }
+
+  .section-note {
+    margin-top: 20px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .floating-logo,
+  .track {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
