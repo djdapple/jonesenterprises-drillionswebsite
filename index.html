@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DRILLIONS — The Brand</title>
+
+  <meta
+    name="description"
+    content="DRILLIONS — identity, culture, ambition."
+  >
+
+  <style>
+    :root {
+      --black: #050505;
+      --white: #f5f5f2;
+      --silver: #b9b9b9;
+      --muted: #777;
+      --line: rgba(255,255,255,0.14);
+      --max-width: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--max-width));
+      margin: auto;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 100;
+
+      padding: 22px 0;
+
+      transition:
+        background 0.3s ease,
+        backdrop-filter 0.3s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .wordmark {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 32px;
+
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .navlinks a {
+      opacity: 0.65;
+      transition: opacity 0.2s ease;
+    }
+
+    .navlinks a:hover {
+      opacity: 1;
+    }
+
+    .menu {
+      display: none;
+
+      border: 0;
+      background: none;
+
+      color: white;
+
+      font-size: 22px;
+
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: grid;
+      place-items: center;
+
+      position: relative;
+
+      padding: 100px 0 50px;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 50% 42%,
+          rgba(255,255,255,0.09),
+          transparent 28%
+        );
+
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      width: min(78vw, 760px);
+
+      filter:
+        drop-shadow(
+          0 0 24px rgba(255,255,255,0.06)
+        );
+    }
+
+    .hero-bottom {
+      position: absolute;
+
+      bottom: 28px;
+
+      left: 0;
+      right: 0;
+
+      display: flex;
+      justify-content: space-between;
+
+      color: #666;
+
+      font-size: 9px;
+
+      letter-spacing: 0.2em;
+
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       MARQUEE
+    ========================= */
+
+    .marquee {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+
+      overflow: hidden;
+
+      padding: 18px 0;
+
+      white-space: nowrap;
+    }
+
+    .track {
+      display: inline-block;
+
+      animation:
+        marquee 24s linear infinite;
+    }
+
+    .track span {
+      font-size: 12px;
+
+      letter-spacing: 0.28em;
+
+      margin-right: 60px;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+      padding: 150px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1.5fr;
+
+      gap: 80px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+
+      letter-spacing: 0.25em;
+
+      text-transform: uppercase;
+
+      color: #777;
+    }
+
+    .intro h1 {
+      font-family: Georgia, serif;
+
+      font-weight: 400;
+
+      font-size: clamp(48px, 7vw, 100px);
+
+      line-height: 0.9;
+
+      letter-spacing: -0.055em;
+
+      margin-top: 25px;
+    }
+
+    .intro-copy {
+      align-self: end;
+
+      max-width: 560px;
+
+      color: #aaa;
+
+      font-size: 17px;
+
+      line-height: 1.7;
+    }
+
+    .intro-copy strong {
+      color: white;
+
+      font-weight: 500;
+    }
+
+    /* =========================
+       MANIFESTO
+    ========================= */
+
+    .manifesto {
+      padding: 0 0 160px;
+    }
+
+    .manifesto p {
+      font-family: Georgia, serif;
+
+      font-size: clamp(36px, 6vw, 82px);
+
+      line-height: 0.98;
+
+      letter-spacing: -0.045em;
+
+      max-width: 1100px;
+    }
+
+    .manifesto em {
+      color: #777;
+    }
+
+    /* =========================
+       COLLECTIONS
+    ========================= */
+
+    .collections {
+      padding: 120px 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .section-top {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: end;
+
+      margin-bottom: 50px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+
+      font-size: clamp(45px, 7vw, 90px);
+
+      font-weight: 400;
+
+      letter-spacing: -0.05em;
+    }
+
+    .section-note {
+      max-width: 260px;
+
+      color: #777;
+
+      font-size: 11px;
+
+      line-height: 1.6;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.08em;
+    }
+
+    .products {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 14px;
+    }
+
+    .product {
+      position: relative;
+
+      aspect-ratio: 4 / 5;
+
+      overflow: hidden;
+
+      background: #101010;
+
+      border: 1px solid var(--line);
+    }
+
+    .product::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,0.75),
+          transparent 45%
+        );
+    }
+
+    .product-art {
+      position: absolute;
+
+      inset: 0;
+
+      display: grid;
+
+      place-items: center;
+
+      background:
+        radial-gradient(
+          circle,
+          #292929 0%,
+          #090909 65%
+        );
+    }
+
+    .product-art img {
+      width: 65%;
+
+      opacity: 0.9;
+
+      filter:
+        grayscale(1)
+        contrast(1.2);
+    }
+
+    .product:nth-child(2) .product-art {
+      background:
+        radial-gradient(
+          circle at 30% 35%,
+          #303030,
+          #080808 65%
+        );
+    }
+
+    .product:nth-child(3) .product-art {
+      background:
+        radial-gradient(
+          circle at 70% 55%,
+          #222,
+          #070707 65%
+        );
+    }
+
+    .product-info {
+      position: absolute;
+
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+
+      z-index: 2;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      font-size: 10px;
+
+      letter-spacing: 0.16em;
+
+      text-transform: uppercase;
+    }
+
+    .product-info span:last-child {
+      color: #777;
+    }
+
+    /* =========================
+       STORY
+    ========================= */
+
+    .story {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      min-height: 760px;
+    }
+
+    .story-image {
+      background: #0a0a0a;
+
+      display: grid;
+
+      place-items: center;
+
+      overflow: hidden;
+    }
+
+    .story-image img {
+      width: 75%;
+
+      max-width: 500px;
+
+      mix-blend-mode: screen;
+
+      opacity: 0.82;
+    }
+
+    .story-copy {
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      padding: 80px;
+
+      border-left: 1px solid var(--line);
+    }
+
+    .story-copy h2 {
+      font-family: Georgia, serif;
+
+      font-size: clamp(48px, 6vw, 86px);
+
+      font-weight: 400;
+
+      line-height: 0.9;
+
+      letter-spacing: -0.055em;
+
+      margin: 20px 0 30px;
+    }
+
+    .story-copy p {
+      color: #999;
+
+      line-height: 1.8;
+
+      max-width: 450px;
+    }
+
+    .signature {
+      margin-top: 45px;
+
+      font-family: Georgia, serif;
+
+      font-size: 22px;
+
+      color: #aaa;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      padding: 170px 0;
+
+      text-align: center;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .contact .eyebrow {
+      margin-bottom: 25px;
+    }
+
+    .contact h2 {
+      font-family: Georgia, serif;
+
+      font-size: clamp(55px, 10vw, 140px);
+
+      font-weight: 400;
+
+      letter-spacing: -0.07em;
+
+      line-height: 0.82;
+    }
+
+    .contact p {
+      color: #777;
+
+      margin: 30px auto;
+
+      max-width: 440px;
+
+      line-height: 1.6;
+    }
+
+    .button {
+      display: inline-block;
+
+      border: 1px solid #555;
+
+      padding: 15px 28px;
+
+      font-size: 10px;
+
+      letter-spacing: 0.2em;
+
+      text-transform: uppercase;
+
+      transition: all 0.25s ease;
+    }
+
+    .button:hover {
+      background: white;
+
+      color: black;
+
+      border-color: white;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--line);
+
+      padding: 30px 0 50px;
+
+      color: #555;
+
+      font-size: 9px;
+
+      letter-spacing: 0.16em;
+
+      text-transform: uppercase;
+    }
+
+    .footer {
+      display: flex;
+
+      justify-content: space-between;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      .container {
+        width:
+          min(
+            calc(100% - 30px),
+            var(--max-width)
+          );
+      }
+
+      .navlinks {
+        display: none;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .hero-logo {
+        width: 90vw;
+      }
+
+      .hero-bottom {
+        padding: 0 15px;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product {
+        aspect-ratio: 1 / 1.15;
+      }
+
+      .story {
+        grid-template-columns: 1fr;
+      }
+
+      .story-copy {
+        border-left: 0;
+
+        border-top: 1px solid var(--line);
+
+        padding: 70px 25px;
+      }
+
+      .section-top {
+        display: block;
+      }
+
+      .section-note {
+        margin-top: 20px;
+      }
+
+      .footer {
+        flex-direction: column;
+
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav class="nav" id="nav">
+
+    <div class="container nav-inner">
+
+      <a href="#" class="wordmark">
+        DRILLIONS
+      </a>
+
+      <div class="navlinks">
+
+        <a href="#identity">
+          Identity
+        </a>
+
+        <a href="#collections">
+          Collections
+        </a>
+
+        <a href="#story">
+          Story
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+      </div>
+
+      <button
+        class="menu"
+        id="menuButton"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <header class="hero">
+
+    <!--
+      Put your logo image in the GitHub repository
+      as:
+
+      /images/drillions.jpg
+
+      Then change the src below to:
+
+      src="images/drillions.jpg"
+    -->
+
+    <img
+      class="hero-logo"
+      src="images/drillions.jpg"
+      alt="DRILLIONS chrome logo"
+    >
+
+    <div class="hero-bottom">
+
+      <span>
+        DRILLIONS / EST. 2026
+      </span>
+
+      <span>
+        THE BRAND
+      </span>
+
+      <span>
+        SCROLL ↓
+      </span>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MARQUEE
+  ========================= -->
+
+  <div class="marquee">
+
+    <div class="track">
+
+      <span>DRILLIONS</span>
+      <span>IDENTITY</span>
+      <span>DESIRE</span>
+      <span>CULTURE</span>
+      <span>AMBITION</span>
+
+      <span>DRILLIONS</span>
+      <span>IDENTITY</span>
+      <span>DESIRE</span>
+      <span>CULTURE</span>
+      <span>AMBITION</span>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       IDENTITY
+  ========================= -->
+
+  <section
+    class="intro"
+    id="identity"
+  >
+
+    <div class="container intro-grid">
+
+      <div>
+
+        <div class="eyebrow">
+          01 / Identity
+        </div>
+
+        <h1>
+          More than<br>
+          a name.
+        </h1>
+
+      </div>
+
+      <div class="intro-copy">
+
+        <p>
+          <strong>
+            DRILLIONS is a world, not a template.
+          </strong>
+          The brand is built around contrast:
+          polished metal against black,
+          old-world typography against modern
+          ambition, luxury against raw energy.
+        </p>
+
+        <br>
+
+        <p>
+          Everything is intentional.
+          The mark. The motion. The space.
+          The silence.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MANIFESTO
+  ========================= -->
+
+  <section class="manifesto">
+
+    <div class="container">
+
+      <p>
+        We don't want to
+        <em>look like everyone else.</em>
+        We want to create a language
+        people recognize before they
+        read the name.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       COLLECTIONS
+  ========================= -->
+
+  <section
+    class="collections"
+    id="collections"
+  >
+
+    <div class="container">
+
+      <div class="section-top">
+
+        <div>
+
+          <div class="eyebrow">
+            02 / Collections
+          </div>
+
+          <h2 class="section-title">
+            THE WORLD<br>
+            OF DRILLIONS.
+          </h2>
+
+        </div>
+
+        <div class="section-note">
+
+          A visual system designed to
+          extend across fashion, objects,
+          media, digital, and culture.
+
+        </div>
+
+      </div>
+
+
+      <div class="products">
+
+        <!-- PRODUCT 1 -->
+
+        <article class="product">
+
+          <div class="product-art">
+
+            <img
+              src="images/drillions.jpg"
+              alt="DRILLIONS Chrome"
+            >
+
+          </div>
+
+          <div class="product-info">
+
+            <span>
+              01 / CHROME
+            </span>
+
+            <span>
+              Signature
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCT 2 -->
+
+        <article class="product">
+
+          <div class="product-art">
+
+            <img
+              src="images/drillions.jpg"
+              alt="DRILLIONS Black"
+            >
+
+          </div>
+
+          <div class="product-info">
+
+            <span>
+              02 / BLACK
+            </span>
+
+            <span>
+              Edition
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCT 3 -->
+
+        <article class="product">
+
+          <div class="product-art">
+
+            <img
+              src="images/drillions.jpg"
+              alt="DRILLIONS Silver"
+            >
+
+          </div>
+
+          <div class="product-info">
+
+            <span>
+              03 / SILVER
+            </span>
+
+            <span>
+              Archive
+            </span>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       STORY
+  ========================= -->
+
+  <section
+    class="story"
+    id="story"
+  >
+
+    <div class="story-image">
+
+      <img
+        src="images/drillions.jpg"
+        alt="DRILLIONS"
+      >
+
+    </div>
+
+
+    <div class="story-copy">
+
+      <div class="eyebrow">
+        03 / The story
+      </div>
+
+      <h2>
+        MAKE THE<br>
+        NAME MEAN<br>
+        SOMETHING.
+      </h2>
+
+      <p>
+
+        DRILLIONS is designed to feel
+        timeless without becoming nostalgic.
+
+        The chrome wordmark carries the
+        heritage. The black space creates
+        the attitude.
+
+        The system leaves room for the
+        brand to become bigger than its
+        first expression.
+
+      </p>
+
+      <div class="signature">
+        — DRILLIONS
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CONTACT
+  ========================= -->
+
+  <section
+    class="contact"
+    id="contact"
+  >
+
+    <div class="container">
+
+      <div class="eyebrow">
+        04 / Enter the world
+      </div>
+
+      <h2>
+        DRILL<br>
+        DEEPER.
+      </h2>
+
+      <p>
+        For collaborations, creative work,
+        products, partnerships, or the
+        next chapter.
+      </p>
+
+      <a
+        class="button"
+        href="mailto:hello@drillions.com"
+      >
+        Start a conversation ↗
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="container footer">
+
+      <span>
+        © 2026 DRILLIONS
+      </span>
+
+      <span>
+        BUILT FOR THE LONG RUN
+      </span>
+
+      <span>
+        ALL RIGHTS RESERVED
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* Add glass effect to navbar
+       after scrolling */
+
+    const nav =
+      document.getElementById("nav");
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (window.scrollY > 40) {
+
+          nav.classList.add("scrolled");
+
+        } else {
+
+          nav.classList.remove("scrolled");
+
+        }
+
+      }
+    );
+
+
+    /* Mobile menu */
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const navLinks =
+      document.querySelector(".navlinks");
+
+    menuButton.addEventListener(
+      "click",
+      () => {
+
+        if (
+          navLinks.style.display === "flex"
+        ) {
+
+          navLinks.style.display = "none";
+
+        } else {
+
+          navLinks.style.display = "flex";
+
+          navLinks.style.position =
+            "absolute";
+
+          navLinks.style.top = "65px";
+
+          navLinks.style.right = "15px";
+
+          navLinks.style.padding = "20px";
+
+          navLinks.style.background =
+            "#050505";
+
+          navLinks.style.flexDirection =
+            "column";
+
+          navLinks.style.border =
+            "1px solid #222";
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
