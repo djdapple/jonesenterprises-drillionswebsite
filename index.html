@@ -1,15 +1,545 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DRILLIONS — identity, culture and ambition.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>DRILLIONS — The Brand</title>
 
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <style>
+
+    /* GENERAL */
+
+    :root {
+      --bg: #000;
+      --fg: #fff;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--max));
+      margin-inline: auto;
+    }
+
+    /* NAVIGATION */
+
+    .nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      background: #000;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .nav-inner {
+      height: 86px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 12px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .navlinks a {
+      color: #fff;
+      opacity: .85;
+    }
+
+    .navlinks a:hover {
+      opacity: 1;
+    }
+
+    /* FLOATING TOP-RIGHT LOGO */
+
+    .brand-logo {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 104px;
+      width: 104px;
+      height: 65px;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+    }
+
+    .floating-logo {
+      display: block;
+      width: 104px;
+      height: 62px;
+      object-fit: contain;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      box-shadow: none;
+      animation: logoFloat 5s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    .menu {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 110px 20px 75px;
+      position: relative;
+      background: #000;
+      border: 0;
+    }
+
+    .hero-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .hero-logo {
+      width: min(100%, 640px);
+      max-height: 64vh;
+      height: auto;
+      object-fit: contain;
+      margin: auto;
+      border: 0;
+    }
+
+    .hero-bottom {
+      position: absolute;
+      bottom: 25px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      letter-spacing: .16em;
+      color: #fff;
+    }
+
+    /* MOVING BRAND TEXT */
+
+    .marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      padding: 16px 0;
+    }
+
+    .track {
+      display: flex;
+      width: max-content;
+      animation: marquee 25s linear infinite;
+    }
+
+    .track span {
+      font-size: 12px;
+      letter-spacing: .2em;
+      padding-right: 60px;
+    }
+
+    @keyframes marquee {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* SECTION LABELS */
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    /* IDENTITY */
+
+    .intro {
+      padding: 130px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 70px;
+    }
+
+    .intro h1,
+    .section-title,
+    .story-copy h2,
+    .contact h2 {
+      font-family: Georgia, serif;
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: .95;
+    }
+
+    .intro h1 {
+      font-size: clamp(48px, 7vw, 96px);
+      margin: 25px 0 0;
+    }
+
+    .intro-copy {
+      align-self: end;
+      color: #fff;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .intro-copy p + p {
+      margin-top: 20px;
+    }
+
+    /* MANIFESTO */
+
+    .manifesto {
+      padding: 0 0 130px;
+    }
+
+    .manifesto p {
+      font-family: Georgia, serif;
+      font-size: clamp(35px, 6vw, 76px);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+
+    .manifesto em {
+      color: #fff;
+    }
+
+    /* COLLECTIONS */
+
+    .collections {
+      padding: 100px 0;
+      border-top: 1px solid #fff;
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+      margin-bottom: 45px;
+    }
+
+    .section-title {
+      font-size: clamp(45px, 7vw, 85px);
+      margin: 16px 0 0;
+    }
+
+    .section-note {
+      max-width: 270px;
+      font-size: 12px;
+      line-height: 1.6;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .product {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #050505;
+      border: 1px solid #fff;
+    }
+
+    .product-art {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-art img {
+      width: 90%;
+      height: 85%;
+      object-fit: contain;
+    }
+
+    .product-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      background: linear-gradient(transparent, #000);
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: #fff;
+    }
+
+    /* BRAND STORY */
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 650px;
+      border-top: 1px solid #fff;
+    }
+
+    .story-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 35px;
+      background: #000;
+    }
+
+    .story-image img {
+      width: min(100%, 470px);
+      height: auto;
+      object-fit: contain;
+    }
+
+    .story-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 65px;
+      border-left: 1px solid #fff;
+    }
+
+    .story-copy h2 {
+      font-size: clamp(45px, 5vw, 75px);
+      margin: 22px 0;
+    }
+
+    .story-copy p {
+      line-height: 1.8;
+      color: #fff;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-family: Georgia, serif;
+      font-size: 22px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+      padding: 135px 0;
+      border-top: 1px solid #fff;
+    }
+
+    .contact h2 {
+      font-size: clamp(55px, 10vw, 125px);
+      margin: 25px 0;
+    }
+
+    .contact p {
+      max-width: 480px;
+      margin: 25px auto;
+      line-height: 1.7;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 25px;
+      border: 1px solid #fff;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #fff;
+      padding: 30px 0 45px;
+      font-size: 10px;
+      letter-spacing: .12em;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .container {
+        width: min(100% - 30px, var(--max));
+      }
+
+      .nav-inner {
+        height: 74px;
+      }
+
+      .menu {
+        display: block;
+        order: 0;
+      }
+
+      .brand-logo {
+        order: 2;
+        flex-basis: 90px;
+        width: 90px;
+        height: 55px;
+      }
+
+      .floating-logo {
+        width: 90px;
+        height: 54px;
+      }
+
+      .navlinks {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 15px;
+        right: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px;
+        background: #000;
+        border: 1px solid #fff;
+      }
+
+      .navlinks.open {
+        display: flex;
+      }
+
+      .hero {
+        padding-top: 90px;
+      }
+
+      .hero-logo {
+        width: min(100%, 550px);
+        max-height: 48vh;
+      }
+
+      .hero-bottom {
+        font-size: 8px;
+      }
+
+      .intro-grid,
+      .story {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product {
+        aspect-ratio: 4 / 4;
+      }
+
+      .section-top {
+        display: block;
+      }
+
+      .section-note {
+        margin-top: 20px;
+      }
+
+      .story-copy {
+        border-left: 0;
+        border-top: 1px solid #fff;
+        padding: 45px 25px;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .floating-logo,
+      .track {
+        animation: none;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
@@ -26,8 +556,8 @@
         <a href="#contact">Contact</a>
       </div>
 
-      <!-- FLOATING TOP-RIGHT LOGO -->
-      <a href="#top" class="brand-logo" aria-label="DRILLIONS home">
+      <a href="#top" class="brand-logo"
+         aria-label="DRILLIONS home">
         <img
           src="images/drillions.jpg"
           alt="DRILLIONS Chrome Logo"
@@ -48,17 +578,18 @@
     </div>
   </nav>
 
-
-  <!-- MAIN HOMEPAGE LOGO -->
+  <!-- MAIN LOGO -->
 
   <header class="hero" id="top">
 
     <div class="container hero-content">
+
       <img
         src="images/drillions.jpg"
-        alt="DRILLIONS Signature Chrome Logo"
+        alt="DRILLIONS"
         class="hero-logo"
       >
+
     </div>
 
     <div class="container hero-bottom">
@@ -69,20 +600,24 @@
 
   </header>
 
-
-  <!-- MOVING BRAND TEXT -->
+  <!-- MOVING TEXT -->
 
   <div class="marquee" aria-hidden="true">
     <div class="track">
-      <span>DRILLIONS · IDENTITY · DESIRE · CULTURE · AMBITION · </span>
-      <span>DRILLIONS · IDENTITY · DESIRE · CULTURE · AMBITION · </span>
+      <span>
+        DRILLIONS · IDENTITY · DESIRE ·
+        CULTURE · AMBITION ·
+      </span>
+      <span>
+        DRILLIONS · IDENTITY · DESIRE ·
+        CULTURE · AMBITION ·
+      </span>
     </div>
   </div>
 
-
   <main>
 
-    <!-- BRAND IDENTITY -->
+    <!-- IDENTITY -->
 
     <section class="intro" id="identity">
       <div class="container intro-grid">
@@ -94,38 +629,38 @@
 
         <div class="intro-copy">
           <p>
-            <strong>DRILLIONS is a world, not a template.</strong>
+            <strong>
+              DRILLIONS is a world, not a template.
+            </strong>
             The brand is built around contrast:
             polished metal against black,
-            old-world typography against modern ambition,
-            luxury against raw energy.
+            old-world typography against modern
+            ambition, luxury against raw energy.
           </p>
 
           <p>
             Everything is intentional.
-            The mark. The motion. The space. The silence.
+            The mark. The motion.
+            The space. The silence.
           </p>
         </div>
 
       </div>
     </section>
 
-
-    <!-- BRAND MANIFESTO -->
+    <!-- MANIFESTO -->
 
     <section class="manifesto">
       <div class="container">
-
         <p>
           We don't want to
           <em>look like everyone else.</em>
-          We want to create a language people recognize
-          before they read the name.
+          We want to create a language
+          people recognize before they
+          read the name.
         </p>
-
       </div>
     </section>
-
 
     <!-- COLLECTIONS -->
 
@@ -133,9 +668,10 @@
       <div class="container">
 
         <div class="section-top">
-
           <div>
-            <div class="eyebrow">02 / Collections</div>
+            <div class="eyebrow">
+              02 / Collections
+            </div>
             <h2 class="section-title">
               THE WORLD<br>
               OF DRILLIONS.
@@ -147,56 +683,43 @@
             across fashion, objects, media,
             digital, and culture.
           </p>
-
         </div>
 
-
         <div class="products">
-
-          <!-- CHROME -->
 
           <article class="product">
             <div class="product-art">
               <img
                 src="images/drillions.jpg"
-                alt="DRILLIONS Chrome Collection"
+                alt="Chrome Collection"
               >
             </div>
-
             <div class="product-info">
               <span>01 / CHROME</span>
               <span>Signature</span>
             </div>
           </article>
 
-
-          <!-- BLACK -->
-
           <article class="product">
             <div class="product-art">
               <img
                 src="images/drillions.jpg"
-                alt="DRILLIONS Black Edition"
+                alt="Black Collection"
               >
             </div>
-
             <div class="product-info">
               <span>02 / BLACK</span>
               <span>Edition</span>
             </div>
           </article>
 
-
-          <!-- SILVER -->
-
           <article class="product">
             <div class="product-art">
               <img
                 src="images/drillions.jpg"
-                alt="DRILLIONS Silver Archive"
+                alt="Silver Collection"
               >
             </div>
-
             <div class="product-info">
               <span>03 / SILVER</span>
               <span>Archive</span>
@@ -204,25 +727,25 @@
           </article>
 
         </div>
-
       </div>
     </section>
 
-
-    <!-- BRAND STORY -->
+    <!-- STORY -->
 
     <section class="story" id="story">
 
       <div class="story-image">
         <img
           src="images/drillions.jpg"
-          alt="DRILLIONS Chrome Logo"
+          alt="DRILLIONS Logo"
         >
       </div>
 
       <div class="story-copy">
 
-        <div class="eyebrow">03 / The Story</div>
+        <div class="eyebrow">
+          03 / The Story
+        </div>
 
         <h2>
           MAKE THE<br>
@@ -241,19 +764,22 @@
           to become bigger than its first expression.
         </p>
 
-        <div class="signature">— DRILLIONS</div>
+        <div class="signature">
+          — DRILLIONS
+        </div>
 
       </div>
 
     </section>
-
 
     <!-- CONTACT -->
 
     <section class="contact" id="contact">
       <div class="container">
 
-        <div class="eyebrow">04 / Enter the World</div>
+        <div class="eyebrow">
+          04 / Enter the World
+        </div>
 
         <h2>
           DRILL<br>
@@ -262,7 +788,8 @@
 
         <p>
           For collaborations, creative work,
-          products, partnerships, or the next chapter.
+          products, partnerships, or
+          the next chapter.
         </p>
 
         <a
@@ -276,7 +803,6 @@
     </section>
 
   </main>
-
 
   <!-- FOOTER -->
 
@@ -293,6 +819,73 @@
 
     </div>
   </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const nav = document.getElementById("nav");
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+    // Navbar scrolling
+
+    function updateNav() {
+      nav.classList.toggle(
+        "scrolled",
+        window.scrollY > 40
+      );
+    }
+
+    window.addEventListener(
+      "scroll",
+      updateNav,
+      { passive: true }
+    );
+
+    updateNav();
+
+    // Mobile menu
+
+    menuButton.addEventListener("click", () => {
+
+      const isOpen =
+        navLinks.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+    });
+
+    // Close mobile menu after clicking link
+
+    navLinks.querySelectorAll("a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        navLinks.classList.remove("open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      });
+
+    });
+
+    // Copyright year
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
 
 </body>
 </html>
