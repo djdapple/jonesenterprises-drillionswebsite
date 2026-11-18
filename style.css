@@ -1,0 +1,49 @@
+.intro-copy{align-self:end;max-width:560px;color:#aaa;font-size:17px;line-height:1.7}
+.intro-copy strong{color:#fff;font-weight:500}
+
+.manifesto{padding:0 0 160px}
+.manifesto p{font-family:Georgia,serif;font-size:clamp(36px,6vw,82px);line-height:.98;letter-spacing:-.045em;max-width:1100px}
+.manifesto em{color:#777}
+
+.collections{padding:120px 0;border-top:1px solid var(--line)}
+.section-top{display:flex;justify-content:space-between;align-items:end;margin-bottom:50px}
+.section-title{font-family:Georgia,serif;font-size:clamp(45px,7vw,90px);font-weight:400;letter-spacing:-.05em}
+.section-note{max-width:260px;color:#777;font-size:11px;line-height:1.6;text-transform:uppercase;letter-spacing:.08em}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.product{position:relative;aspect-ratio:4/5;overflow:hidden;background:#101010;border:1px solid var(--line)}
+.product::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 45%)}
+.product-art{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(circle, #292929 0, #090909 65%)}
+.product-art img{width:65%;opacity:.9;filter:grayscale(1) contrast(1.2)}
+.product:nth-child(2) .product-art{background:radial-gradient(circle at 30% 35%,#303030,#080808 65%)}
+.product:nth-child(3) .product-art{background:radial-gradient(circle at 70% 55%,#222,#070707 65%)}
+.product-info{position:absolute;left:20px;right:20px;bottom:18px;z-index:2;display:flex;justify-content:space-between;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.product-info span:last-child{color:#777}
+
+.story{display:grid;grid-template-columns:1fr 1fr;min-height:760px}
+.story-image{background:#0a0a0a;display:grid;place-items:center;overflow:hidden}
+.story-image img{width:75%;max-width:500px;mix-blend-mode:screen;opacity:.82}
+.story-copy{display:flex;flex-direction:column;justify-content:center;padding:80px; border-left:1px solid var(--line)}
+.story-copy h2{font-family:Georgia,serif;font-size:clamp(48px,6vw,86px);font-weight:400;line-height:.9;letter-spacing:-.055em;margin:20px 0 30px}
+.story-copy p{color:#999;line-height:1.8;max-width:450px}
+.signature{margin-top:45px;font-family:Georgia,serif;font-size:22px;color:#aaa}
+
+.contact{padding:170px 0;text-align:center;border-top:1px solid var(--line)}
+.contact .eyebrow{margin-bottom:25px}
+.contact h2{font-family:Georgia,serif;font-size:clamp(55px,10vw,140px);font-weight:400;letter-spacing:-.07em;line-height:.82}
+.contact p{color:#777;margin:30px auto;max-width:440px;line-height:1.6}
+.button{display:inline-block;border:1px solid #555;padding:15px 28px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;transition:.25s}
+.button:hover{background:#fff;color:#000;border-color:#fff}
+
+footer{border-top:1px solid var(--line);padding:30px 0 50px;color:#555;font-size:9px;letter-spacing:.16em;text-transform:uppercase}
+.footer{display:flex;justify-content:space-between}
+@media(max-width:800px){
+  .navlinks{display:none} .menu{display:block}
+  .container{width:min(calc(100% - 30px),var(--max))}
+  .hero-logo{width:90vw}
+  .intro-grid,.story{grid-template-columns:1fr;gap:50px}
+  .products{grid-template-columns:1fr}
+  .product{aspect-ratio:1/1.15}
+  .story-copy{border-left:0;border-top:1px solid var(--line);padding:70px 25px}
+  .section-top{display:block} .section-note{margin-top:20px}
+  .hero-bottom{padding:0 15px}
+}
