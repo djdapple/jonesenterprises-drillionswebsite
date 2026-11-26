@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drillions / Marketing Center</title>
+  <link rel="stylesheet" href="marketing.css">
 
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="marketing.js"></script>
+</head>
+
+<body>
+
+<header>
+  <strong>DRILLIONS / MARKETING</strong>
+  <nav>
+    <a href="../">Product Management</a>
+    <a href="../../expo/">View Store</a>
+  </nav>
+</header>
+
+<main>
+
+  <p id="status" role="status">Checking administrator access...</p>
+
+  <section id="locked" hidden>
+    <h1>Administrator access required</h1>
+    <a href="../">Return to administrator login</a>
+  </section>
+
+  <section id="dashboard" hidden>
+
+    <p class="eyebrow">DRILLIONS BUSINESS MANAGEMENT</p>
+    <h1>Marketing Center</h1>
+    <p>Manage promotions, campaigns and storefront announcements.</p>
+
+    <div class="stats">
+      <article>
+        Total Campaigns
+        <strong id="total">0</strong>
+      </article>
+
+      <article>
+        Live Campaigns
+        <strong id="live">0</strong>
+      </article>
+
+      <article>
+        Scheduled Campaigns
+        <strong id="scheduled">0</strong>
+      </article>
+    </div>
+
+    <h2 id="formTitle">Create Campaign</h2>
+
+    <form id="campaignForm">
+
+      <label>
+        Campaign Name
+        <input name="name" required maxlength="120">
+      </label>
+
+      <label>
+        Promotional Headline
+        <input name="headline" required maxlength="200">
+      </label>
+
+      <div class="fields">
+
+        <label>
+          Promotional Code
+          <input name="promo_code" required maxlength="40">
+        </label>
+
+        <label>
+          Discount Percentage
+          <input name="discount_percent"
+                 type="number"
+                 min="0.01"
+                 max="100"
+                 step="0.01"
+                 required>
+        </label>
+
+        <label>
+          Start Date
+          <input name="starts_at"
+                 type="datetime-local"
+                 required>
+        </label>
+
+        <label>
+          Expiration Date (optional)
+          <input name="ends_at"
+                 type="datetime-local">
+        </label>
+
+      </div>
+
+      <label class="check">
+        <input type="checkbox"
+               name="banner_enabled"
+               checked>
+        Display Promotional Banner
+      </label>
+
+      <label class="check">
+        <input type="checkbox" name="active">
+        Activate Campaign
+      </label>
+
+      <h3>Banner Preview</h3>
+
+      <div id="bannerPreview">
+        YOUR PROMOTIONAL MESSAGE
+      </div>
+
+      <div class="actions">
+        <button type="submit" id="save">
+          Save Campaign
+        </button>
+
+        <button type="button" id="cancel">
+          Clear Form
+        </button>
+      </div>
+
+    </form>
+
+    <h2>Campaign Management</h2>
+
+    <div id="campaigns"></div>
+
+  </section>
+
+</main>
+
+</body>
+</html>
