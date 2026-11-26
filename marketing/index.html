@@ -3,39 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Drillions / Marketing Center</title>
-  <link rel="stylesheet" href="marketing.css">
+
+  <link rel="stylesheet" href="./style.css">
 
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script defer src="marketing.js"></script>
+  <script defer src="./script.js"></script>
 </head>
 
 <body>
 
 <header>
   <strong>DRILLIONS / MARKETING</strong>
+
   <nav>
-    <a href="../">Product Management</a>
-    <a href="../../expo/">View Store</a>
+    <a href="../">Home</a>
+    <a href="../admin/">Product Management</a>
+    <a href="../expo/">View Store</a>
   </nav>
 </header>
 
 <main>
 
-  <p id="status" role="status">Checking administrator access...</p>
+  <p id="status" role="status" aria-live="polite">
+    Checking administrator access...
+  </p>
 
   <section id="locked" hidden>
+
     <h1>Administrator access required</h1>
-    <a href="../">Return to administrator login</a>
+
+    <p>Please sign in to your administrator account to access the Marketing Center.</p>
+
+    <a href="../admin/">
+      Return to administrator login
+    </a>
+
   </section>
 
   <section id="dashboard" hidden>
 
-    <p class="eyebrow">DRILLIONS BUSINESS MANAGEMENT</p>
+    <p class="eyebrow">
+      DRILLIONS BUSINESS MANAGEMENT
+    </p>
+
     <h1>Marketing Center</h1>
-    <p>Manage promotions, campaigns and storefront announcements.</p>
+
+    <p>
+      Manage promotions, campaigns and storefront announcements.
+    </p>
 
     <div class="stats">
+
       <article>
         Total Campaigns
         <strong id="total">0</strong>
@@ -50,6 +70,7 @@
         Scheduled Campaigns
         <strong id="scheduled">0</strong>
       </article>
+
     </div>
 
     <h2 id="formTitle">Create Campaign</h2>
@@ -58,56 +79,81 @@
 
       <label>
         Campaign Name
-        <input name="name" required maxlength="120">
+        <input
+          name="name"
+          required
+          maxlength="120"
+          placeholder="Black Friday Campaign">
       </label>
 
       <label>
         Promotional Headline
-        <input name="headline" required maxlength="200">
+        <input
+          name="headline"
+          required
+          maxlength="200"
+          placeholder="BLACK FRIDAY — SAVE 20%">
       </label>
 
       <div class="fields">
 
         <label>
           Promotional Code
-          <input name="promo_code" required maxlength="40">
+          <input
+            name="promo_code"
+            required
+            maxlength="40"
+            placeholder="BLACKFRIDAY20">
         </label>
 
         <label>
           Discount Percentage
-          <input name="discount_percent"
-                 type="number"
-                 min="0.01"
-                 max="100"
-                 step="0.01"
-                 required>
+          <input
+            name="discount_percent"
+            type="number"
+            min="0.01"
+            max="100"
+            step="0.01"
+            placeholder="20"
+            required>
         </label>
 
         <label>
           Start Date
-          <input name="starts_at"
-                 type="datetime-local"
-                 required>
+          <input
+            name="starts_at"
+            type="datetime-local"
+            required>
         </label>
 
         <label>
           Expiration Date (optional)
-          <input name="ends_at"
-                 type="datetime-local">
+          <input
+            name="ends_at"
+            type="datetime-local">
         </label>
 
       </div>
 
       <label class="check">
-        <input type="checkbox"
-               name="banner_enabled"
-               checked>
+
+        <input
+          type="checkbox"
+          name="banner_enabled"
+          checked>
+
         Display Promotional Banner
+
       </label>
 
       <label class="check">
-        <input type="checkbox" name="active">
+
+        <input
+          type="checkbox"
+          name="active">
+
         Activate Campaign
+
       </label>
 
       <h3>Banner Preview</h3>
@@ -117,6 +163,7 @@
       </div>
 
       <div class="actions">
+
         <button type="submit" id="save">
           Save Campaign
         </button>
@@ -124,6 +171,7 @@
         <button type="button" id="cancel">
           Clear Form
         </button>
+
       </div>
 
     </form>
@@ -133,6 +181,10 @@
     <div id="campaigns"></div>
 
   </section>
+
+  <noscript>
+    JavaScript is required to operate the Drillions Marketing Center.
+  </noscript>
 
 </main>
 
