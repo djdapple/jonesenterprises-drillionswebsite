@@ -1,10 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DRILLIONS — The Brand</title>
+
+  <!-- GOOGLE ANALYTICS 4 -->
+  <script>
+    const measurementId = 'G-P0XNV6B0GD';
+    if (/^G-[A-Z0-9]+$/.test(measurementId)) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', measurementId);
+      const analyticsScript = document.createElement('script');
+      analyticsScript.async = true;
+      analyticsScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
+      document.head.appendChild(analyticsScript);
+    }
+  </script>
+  <!-- END GOOGLE ANALYTICS 4 -->
+
 
   <style>
     /* GENERAL */
